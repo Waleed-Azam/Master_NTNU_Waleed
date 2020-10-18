@@ -10,4 +10,4 @@ The Data using SimObject NetFollowing is generated for the training of the Deep 
 The file SimObjectNetfollowingXml will give the information of the varaibles and objects has been used for the generation of the data. For more please visit about the simulator for the generation of the data: https://github.com/Waleed-Azam/Master_NTNU_Waleed/blob/master/SimObjectNetfollowingXml
 
 
-If you have any questions about my code please ask wshykhu@gmail.com
+If you have any questions about my code please ask waleed.ntnu@gmail.com
