@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+
+-<Contents>
+
+
+-<VARIABLES>
+
+<Var Value="3.1415926535897932385" Name="const_pi"/>
+
+<Var Value="3.1415926535897932385/2" Name="curr_dir"/>
+
+<Var Value="0.35" Name="curr_vel"/>
+
+<Var Value="3.1415926535897932385/2" Name="wave_dir"/>
+
+<Var Value="1.0" Name="wave_hs"/>
+
+<Var Value="16" Name="wave_tp"/>
+
+<Var Value="1*1.7/1.7" Name="dim_rov"/>
+
+<Var Value="3.0" Name="dis_rov"/>
+
+<Var Value="1.0" Name="tcp_com"/>
+
+<Var Value="25" Name="tx_init"/>
+
+<Var Value="0" Name="ty_init"/>
+
+<Var Value="2.0" Name="tz_init"/>
+
+<Var Value="0" Name="rx_init"/>
+
+<Var Value="0" Name="ry_init"/>
+
+<Var Value="0" Name="rz_init"/>
+
+<Var Value="1.0" Name="damp_rov"/>
+
+</VARIABLES>
+
+
+-<OBJECTS>
+
+<Lib Name="ROV6DOF" SeaEnvironmentModeling="false" VesselMainDimensions="0.9,0.65,0.5" Weight2BuoyancyRatio="0.99" CB="0,0,-0.18" CG="0,0,0" NonlinearDampingMatrixDiagonal="350,350,400,100,100,75" LinearDampingMatrixDiagonal="250*$damp_rov,200*$damp_rov,175*$damp_rov,20*$damp_rov,20*$damp_rov,15*$damp_rov" ZeroFrequencyAddedMassDiagonal="0.6*90,0.8*90,4.0*90,1.1*10,2.9*15,0.4*13" RigidBodyMassMatrixDiagonal="90,90,90,10,15,13" BiasTimeConstants="10000,10000,10000,0,0,10000" WaveModel_LAMBDA="1,1,1,1,1,1" WaveModel_OMEGA="2,2,2,2,2,2" WaveModelRelativeDamping="1" WaveModelPeakFreq="2" AutoCalcWavePar="false" WaveModeling="false" InitTime="0" SimObject="AquacultureRobotics/ROVVessel6DOF" LibName="AquacultureRobotics"/>
+
+<!-- THRUSTERS -->
+
+
+<Lib Name="ThrusterAlloc" SimObject="AquacultureRobotics/ThrusterAllocArgusMini" LibName="AquacultureRobotics" Thruster_6_Horizontal="false" Thruster_6_CmdMin_CmdMax="-1,1" Thruster_6_positionAndAttitude="0.003,0.216,-0.149,-90,0" Thruster_5_Horizontal="false" Thruster_5_CmdMin_CmdMax="-1,1" Thruster_5_positionAndAttitude="0.003,-0.216,-0.149,-90,0" Thruster_4_Horizontal="true" Thruster_4_CmdMin_CmdMax="-1,1" Thruster_4_positionAndAttitude="-0.265,0.193,-0.02,35,0" Thruster_3_Horizontal="true" Thruster_3_CmdMin_CmdMax="-1,1" Thruster_3_positionAndAttitude="-0.265,-0.195,-0.02,-35,0" Thruster_2_Horizontal="true" Thruster_2_CmdMin_CmdMax="-1,1" Thruster_2_positionAndAttitude="0.202,0.216,-0.02,-35,0" Thruster_1_Horizontal="true" Thruster_1_CmdMin_CmdMax="-1,1" Thruster_1_positionAndAttitude="0.202,-0.216,-0.02,35,0" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt"/>
+
+<Lib Name="ThrusterFrontPort" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="0,35" PositionWRT_CenterOfGravity="0.202,-0.216,-0.02"/>
+
+<Lib Name="ThrusterFrontStarboard" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="0,-35" PositionWRT_CenterOfGravity="0.202,0.216,-0.02"/>
+
+<Lib Name="ThrusterRearPort" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="0,-35" PositionWRT_CenterOfGravity="-0.265,-0.195,-0.02"/>
+
+<Lib Name="ThrusterRearStarboard" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="0,35" PositionWRT_CenterOfGravity="-0.265,0.193,-0.02"/>
+
+<Lib Name="ThrusterVerticalPort" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="-90,0" PositionWRT_CenterOfGravity="0.003,-0.216,-0.149"/>
+
+<Lib Name="ThrusterVerticalStarboard" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="-90,0" PositionWRT_CenterOfGravity="0.003,0.216,-0.149"/>
+
+<Lib Name="ThrusterForcesSum" SimObject="Math/Sum" LibName="FhSimBaseLibrary" PortWidth="6" NumInput="6"/>
+
+<Lib Name="ThrusterDemux" SimObject="Signal/Demux" LibName="FhSimBaseLibrary" PortWidth="6" NumInput="1" OutPortWidth6="1" OutPortWidth5="1" OutPortWidth4="1" OutPortWidth3="1" OutPortWidth2="1" OutPortWidth1="1" NumOutput="6"/>
+
+<!-- HIGH LEVEL CONTROL -->
+
+
+<Lib Name="NetFollowing" SimObject="AquacultureRobotics/NetFollowingILOSGuidance" LibName="AquacultureRobotics" ICintegrator="0" DVLPosWrtCO="0.37,-0.2,0.2" DVLGammaAngleDeg="25" DVLBetaAngelsDeg="45,135,225,315" GainRho="0.0" GainSigma="0.0" GainDelta="1.0"/>
+
+<Lib Name="DP" SimObject="AquacultureRobotics/NonLinDP4DOF" LibName="AquacultureRobotics" TRNPosWrtCO="0,0,0" GainKd="0.1,0.1,0.05,0.1" GainKp="30,30,50,15"/>
+
+<!-- LOW LEVEL CONTROL -->
+
+
+<Lib Name="AutoDepth" SimObject="AquacultureRobotics/PIDepthController" LibName="AquacultureRobotics" ICintegratorZ="0.0" GainKzI="0.2" GainKzP="50"/>
+
+<Lib Name="AutoHeading" SimObject="AquacultureRobotics/PIDHeadingController" LibName="AquacultureRobotics" FeedForward="0" ICintegratorHeading="0" GainKr="0.1" GainKpsiI="0.5" GainKpsi="15.0"/>
+
+<Lib Name="AutoSurge" SimObject="AquacultureRobotics/PISpeedController" LibName="AquacultureRobotics" ICintegrator="0" GainKp="500.0" AccelerationFeedForward="1" GainKi="120.0"/>
+
+<Lib Name="AutoSway" SimObject="AquacultureRobotics/PISpeedController" LibName="AquacultureRobotics" ICintegrator="0" GainKp="500.0" AccelerationFeedForward="1" GainKi="120.0"/>
+
+<!-- Switch commanded thrust between active controllers -->
+
+
+<Lib Name="ModeSwitcher" SimObject="AquacultureRobotics/ModeSwitch" LibName="AquacultureRobotics"/>
+
+<!--IMC -->
+
+
+<Lib Name="IMCInterface" SimObject="AquacultureRobotics/IOInterfaceIMC" LibName="AquacultureRobotics" IMCaddress="960" RxBufferLength="256" Port="5000" IP="127.0.0.1" ServerName="IMCTerminal" IMCSampleInterval="0.1"/>
+
+<Lib Name="ROVMaster" SimObject="AquacultureRobotics/ROVMaster" LibName="AquacultureRobotics" IMCInterfaceName="IMCInterface"/>
+
+<!-- VISUALIZATION -->
+
+
+<Lib Name="MovingBody" SimObject="AquacultureRobotics/VisualBodyOGRE" LibName="AquacultureRobotics" RotationBias="0,0,-90" RenderColor="0.7,0.7,0.7,1.0" RenderScale="3*0.001,3*0.001,3*0.001" MeshFileName="C:\_work\FhSim\aquaculturerobotics\InputFile\ArgusMarinerHQ" DOFModes="1,1,1,1,1,1"/>
+
+<Lib Name="Cage" SimObject="AquacultureRobotics/StaticNetStructure" LibName="AquacultureRobotics" Offset="20,0,0" Filepath="C:\_work\FhSim\aquaculturerobotics\InputFile" Filename="NavVisDescription.xml"/>
+
+<!-- DVL -->
+
+
+<Lib Name="DVL" SimObject="AquacultureRobotics/DVLSensorModel" LibName="AquacultureRobotics" DVLPosWrtCO="0.37,-0.2,0.2" DVLGammaAngleDeg="25" DVLRangeMeters="20" DVLBetaAnglesDeg="45,135,225,315" NetStructureName="Cage"/>
+
+<!-- SIGNAL ROUTING -->
+
+
+<Lib Name="PosDemux" SimObject="Signal/Demux" LibName="FhSimBaseLibrary" PortWidth="6" NumInput="1" OutPortWidth6="1" OutPortWidth5="1" OutPortWidth4="1" OutPortWidth3="1" OutPortWidth2="1" OutPortWidth1="1" NumOutput="6"/>
+
+<Lib Name="VelDemux" SimObject="Signal/Demux" LibName="FhSimBaseLibrary" PortWidth="6" NumInput="1" OutPortWidth6="1" OutPortWidth5="1" OutPortWidth4="1" OutPortWidth3="1" OutPortWidth2="1" OutPortWidth1="1" NumOutput="6"/>
+
+<Lib Name="Pos4DOFMux" SimObject="Signal/Mux" LibName="FhSimBaseLibrary" PortWidth="4" NumInput="4" InPortWidth4="1" InPortWidth3="1" InPortWidth2="1" InPortWidth1="1"/>
+
+<Lib Name="Vel4DOFMux" SimObject="Signal/Mux" LibName="FhSimBaseLibrary" PortWidth="4" NumInput="4" InPortWidth4="1" InPortWidth3="1" InPortWidth2="1" InPortWidth1="1"/>
+
+<Lib Name="Pos3DOFMux" SimObject="Signal/Mux" LibName="FhSimBaseLibrary" PortWidth="3" NumInput="3" InPortWidth3="1" InPortWidth2="1" InPortWidth1="1"/>
+
+<Lib Name="Vel3DOFMux" SimObject="Signal/Mux" LibName="FhSimBaseLibrary" PortWidth="3" NumInput="3" InPortWidth3="1" InPortWidth2="1" InPortWidth1="1"/>
+
+<Lib Name="PsiDSwitch" SimObject="Signal/Switch" LibName="FhSimBaseLibrary" PortWidth="1" SwitchType="eq"/>
+
+<Lib Name="DVLAndNetFollowing" SimObject="Math/Logic" LibName="FhSimBaseLibrary" PortWidth="1" NumInput="2" Type="and"/>
+
+</OBJECTS>
+
+
+-<INTERCONNECTIONS>
+
+<Connection DVLAndNetFollowing.In2="ROVMaster.NetFollowingActive" DVLAndNetFollowing.In1="DVL.UpdateAvailable" PsiDSwitch.In3="NetFollowing.NetHeading" PsiDSwitch.In2="ROVMaster.NetFollowingActive" PsiDSwitch.In1="ROVMaster.DesiredHeading" Vel3DOFMux.In3="VelDemux.Out3" Vel3DOFMux.In2="VelDemux.Out2" Vel3DOFMux.In1="VelDemux.Out1" Pos3DOFMux.In3="PosDemux.Out3" Pos3DOFMux.In2="PosDemux.Out2" Pos3DOFMux.In1="PosDemux.Out1" Vel4DOFMux.In4="VelDemux.Out6" Vel4DOFMux.In3="VelDemux.Out3" Vel4DOFMux.In2="VelDemux.Out2" Vel4DOFMux.In1="VelDemux.Out1" Pos4DOFMux.In4="PosDemux.Out6" Pos4DOFMux.In3="PosDemux.Out3" Pos4DOFMux.In2="PosDemux.Out2" Pos4DOFMux.In1="PosDemux.Out1" VelDemux.In="ROV6DOF.VelocityBODY" PosDemux.In="ROV6DOF.PositionNED" DVL.DVLTiltDeg="0" DVL.ROVPos="ROV6DOF.PositionNED" MovingBody.Position="ROV6DOF.PositionNED" ROVMaster.USBLPositionNED="Pos3DOFMux.Out" ROVMaster.DVLVelocityBODY="Vel3DOFMux.Out" ROVMaster.USBLAvailable="1.0" ROVMaster.NetHeading="NetFollowing.NetHeading" ROVMaster.CrosstrackError="NetFollowing.CrosstrackError" ROVMaster.DVLAvailable="DVL.UpdateAvailable" ROVMaster.VelocityBODY="ROV6DOF.VelocityBODY" ROVMaster.PositionNED="ROV6DOF.PositionNED" ModeSwitcher.AutoDepthActive="ROVMaster.AutoDepthActive" ModeSwitcher.AutoHeadingActive="ROVMaster.AutoHeadingActive" ModeSwitcher.NetFollowingActive="ROVMaster.NetFollowingActive" ModeSwitcher.DPActive="ROVMaster.DPActive" ModeSwitcher.HeadingDesiredTauR="AutoHeading.DesiredTau" ModeSwitcher.DepthDesiredTauW="AutoDepth.DesiredTau" ModeSwitcher.SwayDesiredTauV="AutoSway.DesiredTau" ModeSwitcher.SurgeDesiredTauU="AutoSurge.DesiredTau" ModeSwitcher.ManualDesiredTau="ROVMaster.DesiredTau" ModeSwitcher.DPDesiredTau="DP.DesiredTau" AutoSway.AutoSpeed="DVLAndNetFollowing.Out" AutoSway.DesiredSpeed="NetFollowing.DesiredSpeedSway" AutoSway.MeasuredSpeed="VelDemux.Out2" AutoSurge.AutoSpeed="DVLAndNetFollowing.Out" AutoSurge.DesiredSpeed="NetFollowing.DesiredSpeedSurge" AutoSurge.MeasuredSpeed="VelDemux.Out1" AutoHeading.DotDotFeedForward="0.0" AutoHeading.DotFeedForward="0.0" AutoHeading.AutoHeading="ROVMaster.AutoHeadingActive" AutoHeading.PsiD="PsiDSwitch.Out" AutoHeading.EtaDot="VelDemux.Out6" AutoHeading.Eta="PosDemux.Out6" AutoDepth.AutoDepth="ROVMaster.AutoDepthActive" AutoDepth.ZD="ROVMaster.DesiredDepth" AutoDepth.Eta="PosDemux.Out3" DP.EtaReference="ROVMaster.EtaReference4DOF" DP.BiasEstimate="0,0,0,0" DP.NuEstimate="Vel4DOFMux.Out" DP.EtaEstimate="Pos4DOFMux.Out" NetFollowing.Direction="ROVMaster.NetFollowingDirection" NetFollowing.DesDistanceNetMeters="ROVMaster.NetFollowingDesiredDistance" NetFollowing.DesiredSpeed="ROVMaster.NetFollowingDesiredSpeed" NetFollowing.RotDVLToBODYdeg="0,0,0" NetFollowing.ROVPos="ROV6DOF.PositionNED" NetFollowing.DVLBeams="DVL.DVLBeams" NetFollowing.DVLUpdateValid="DVLAndNetFollowing.Out" ThrusterForcesSum.In6="ThrusterVerticalStarboard.ForcesBODY" ThrusterForcesSum.In5="ThrusterVerticalPort.ForcesBODY" ThrusterForcesSum.In4="ThrusterRearStarboard.ForcesBODY" ThrusterForcesSum.In3="ThrusterFrontStarboard.ForcesBODY" ThrusterForcesSum.In2="ThrusterRearPort.ForcesBODY" ThrusterForcesSum.In1="ThrusterFrontPort.ForcesBODY" ThrusterVerticalStarboard.Cmd="ThrusterDemux.Out6" ThrusterVerticalPort.Cmd="ThrusterDemux.Out5" ThrusterRearStarboard.Cmd="ThrusterDemux.Out4" ThrusterRearPort.Cmd="ThrusterDemux.Out3" ThrusterFrontStarboard.Cmd="ThrusterDemux.Out2" ThrusterFrontPort.Cmd="ThrusterDemux.Out1" ThrusterDemux.In="ThrusterAlloc.Cmd" ThrusterAlloc.ExtCmd="0,0,0,0,0,0" ThrusterAlloc.DPEnabled="1" ThrusterAlloc.Tau_desired="ModeSwitcher.DesiredTau" ROV6DOF.ThrusterForcesAndMoments="ThrusterForcesSum.Out"/>
+
+</INTERCONNECTIONS>
+
+
+-<INITIALIZATION>
+
+<InitialCondition ROV6DOF.Nu="0,0,0,0,0,0" ROV6DOF.Eta="0,0,0,0,0,0" ROV6DOF.BiasVel="0,0,0,0,0,0" ROV6DOF.BiasPos="0,0,0,0,0,0"/>
+
+</INITIALIZATION>
+
+
+-<INTEGRATION>
+
+<Engine NumCores="perCpuCore" UseRSSNormInsteadOfInfNorm="0" RelTol="0.01" AbsTol="0.01" HMin="1E-15" HMax="0.1" Stepsize="0.01" FileOutput="objects:ports" LogStates="1" TOutput="0,0:0.1:50000,50000" IntegratorMethod="0"/>
+
+</INTEGRATION>
+
+</Contents><?xml version="1.0"?>
+
+-<Contents>
+
+
+-<VARIABLES>
+
+<Var Value="3.1415926535897932385" Name="const_pi"/>
+
+<Var Value="3.1415926535897932385/2" Name="curr_dir"/>
+
+<Var Value="0.35" Name="curr_vel"/>
+
+<Var Value="3.1415926535897932385/2" Name="wave_dir"/>
+
+<Var Value="1.0" Name="wave_hs"/>
+
+<Var Value="16" Name="wave_tp"/>
+
+<Var Value="1*1.7/1.7" Name="dim_rov"/>
+
+<Var Value="3.0" Name="dis_rov"/>
+
+<Var Value="1.0" Name="tcp_com"/>
+
+<Var Value="25" Name="tx_init"/>
+
+<Var Value="0" Name="ty_init"/>
+
+<Var Value="2.0" Name="tz_init"/>
+
+<Var Value="0" Name="rx_init"/>
+
+<Var Value="0" Name="ry_init"/>
+
+<Var Value="0" Name="rz_init"/>
+
+<Var Value="1.0" Name="damp_rov"/>
+
+</VARIABLES>
+
+
+-<OBJECTS>
+
+<Lib Name="ROV6DOF" SeaEnvironmentModeling="false" VesselMainDimensions="0.9,0.65,0.5" Weight2BuoyancyRatio="0.99" CB="0,0,-0.18" CG="0,0,0" NonlinearDampingMatrixDiagonal="350,350,400,100,100,75" LinearDampingMatrixDiagonal="250*$damp_rov,200*$damp_rov,175*$damp_rov,20*$damp_rov,20*$damp_rov,15*$damp_rov" ZeroFrequencyAddedMassDiagonal="0.6*90,0.8*90,4.0*90,1.1*10,2.9*15,0.4*13" RigidBodyMassMatrixDiagonal="90,90,90,10,15,13" BiasTimeConstants="10000,10000,10000,0,0,10000" WaveModel_LAMBDA="1,1,1,1,1,1" WaveModel_OMEGA="2,2,2,2,2,2" WaveModelRelativeDamping="1" WaveModelPeakFreq="2" AutoCalcWavePar="false" WaveModeling="false" InitTime="0" SimObject="AquacultureRobotics/ROVVessel6DOF" LibName="AquacultureRobotics"/>
+
+<!-- THRUSTERS -->
+
+
+<Lib Name="ThrusterAlloc" SimObject="AquacultureRobotics/ThrusterAllocArgusMini" LibName="AquacultureRobotics" Thruster_6_Horizontal="false" Thruster_6_CmdMin_CmdMax="-1,1" Thruster_6_positionAndAttitude="0.003,0.216,-0.149,-90,0" Thruster_5_Horizontal="false" Thruster_5_CmdMin_CmdMax="-1,1" Thruster_5_positionAndAttitude="0.003,-0.216,-0.149,-90,0" Thruster_4_Horizontal="true" Thruster_4_CmdMin_CmdMax="-1,1" Thruster_4_positionAndAttitude="-0.265,0.193,-0.02,35,0" Thruster_3_Horizontal="true" Thruster_3_CmdMin_CmdMax="-1,1" Thruster_3_positionAndAttitude="-0.265,-0.195,-0.02,-35,0" Thruster_2_Horizontal="true" Thruster_2_CmdMin_CmdMax="-1,1" Thruster_2_positionAndAttitude="0.202,0.216,-0.02,-35,0" Thruster_1_Horizontal="true" Thruster_1_CmdMin_CmdMax="-1,1" Thruster_1_positionAndAttitude="0.202,-0.216,-0.02,35,0" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt"/>
+
+<Lib Name="ThrusterFrontPort" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="0,35" PositionWRT_CenterOfGravity="0.202,-0.216,-0.02"/>
+
+<Lib Name="ThrusterFrontStarboard" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="0,-35" PositionWRT_CenterOfGravity="0.202,0.216,-0.02"/>
+
+<Lib Name="ThrusterRearPort" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="0,-35" PositionWRT_CenterOfGravity="-0.265,-0.195,-0.02"/>
+
+<Lib Name="ThrusterRearStarboard" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="0,35" PositionWRT_CenterOfGravity="-0.265,0.193,-0.02"/>
+
+<Lib Name="ThrusterVerticalPort" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="-90,0" PositionWRT_CenterOfGravity="0.003,-0.216,-0.149"/>
+
+<Lib Name="ThrusterVerticalStarboard" SimObject="AquacultureRobotics/DCThrusterArgusMini6DOF" LibName="AquacultureRobotics" RateLimiterSlewRate="1.5" ThrusterFilename="C:\_work\FhSim\aquaculturerobotics\InputFile\ThrusterCurveMini.txt" Attitude="-90,0" PositionWRT_CenterOfGravity="0.003,0.216,-0.149"/>
+
+<Lib Name="ThrusterForcesSum" SimObject="Math/Sum" LibName="FhSimBaseLibrary" PortWidth="6" NumInput="6"/>
+
+<Lib Name="ThrusterDemux" SimObject="Signal/Demux" LibName="FhSimBaseLibrary" PortWidth="6" NumInput="1" OutPortWidth6="1" OutPortWidth5="1" OutPortWidth4="1" OutPortWidth3="1" OutPortWidth2="1" OutPortWidth1="1" NumOutput="6"/>
+
+<!-- HIGH LEVEL CONTROL -->
+
+
+<Lib Name="NetFollowing" SimObject="AquacultureRobotics/NetFollowingILOSGuidance" LibName="AquacultureRobotics" ICintegrator="0" DVLPosWrtCO="0.37,-0.2,0.2" DVLGammaAngleDeg="25" DVLBetaAngelsDeg="45,135,225,315" GainRho="0.0" GainSigma="0.0" GainDelta="1.0"/>
+
+<Lib Name="DP" SimObject="AquacultureRobotics/NonLinDP4DOF" LibName="AquacultureRobotics" TRNPosWrtCO="0,0,0" GainKd="0.1,0.1,0.05,0.1" GainKp="30,30,50,15"/>
+
+<!-- LOW LEVEL CONTROL -->
+
+
+<Lib Name="AutoDepth" SimObject="AquacultureRobotics/PIDepthController" LibName="AquacultureRobotics" ICintegratorZ="0.0" GainKzI="0.2" GainKzP="50"/>
+
+<Lib Name="AutoHeading" SimObject="AquacultureRobotics/PIDHeadingController" LibName="AquacultureRobotics" FeedForward="0" ICintegratorHeading="0" GainKr="0.1" GainKpsiI="0.5" GainKpsi="15.0"/>
+
+<Lib Name="AutoSurge" SimObject="AquacultureRobotics/PISpeedController" LibName="AquacultureRobotics" ICintegrator="0" GainKp="500.0" AccelerationFeedForward="1" GainKi="120.0"/>
+
+<Lib Name="AutoSway" SimObject="AquacultureRobotics/PISpeedController" LibName="AquacultureRobotics" ICintegrator="0" GainKp="500.0" AccelerationFeedForward="1" GainKi="120.0"/>
+
+<!-- Switch commanded thrust between active controllers -->
+
+
+<Lib Name="ModeSwitcher" SimObject="AquacultureRobotics/ModeSwitch" LibName="AquacultureRobotics"/>
+
+<!--IMC -->
+
+
+<Lib Name="IMCInterface" SimObject="AquacultureRobotics/IOInterfaceIMC" LibName="AquacultureRobotics" IMCaddress="960" RxBufferLength="256" Port="5000" IP="127.0.0.1" ServerName="IMCTerminal" IMCSampleInterval="0.1"/>
+
+<Lib Name="ROVMaster" SimObject="AquacultureRobotics/ROVMaster" LibName="AquacultureRobotics" IMCInterfaceName="IMCInterface"/>
+
+<!-- VISUALIZATION -->
+
+
+<Lib Name="MovingBody" SimObject="AquacultureRobotics/VisualBodyOGRE" LibName="AquacultureRobotics" RotationBias="0,0,-90" RenderColor="0.7,0.7,0.7,1.0" RenderScale="3*0.001,3*0.001,3*0.001" MeshFileName="C:\_work\FhSim\aquaculturerobotics\InputFile\ArgusMarinerHQ" DOFModes="1,1,1,1,1,1"/>
+
+<Lib Name="Cage" SimObject="AquacultureRobotics/StaticNetStructure" LibName="AquacultureRobotics" Offset="20,0,0" Filepath="C:\_work\FhSim\aquaculturerobotics\InputFile" Filename="NavVisDescription.xml"/>
+
+<!-- DVL -->
+
+
+<Lib Name="DVL" SimObject="AquacultureRobotics/DVLSensorModel" LibName="AquacultureRobotics" DVLPosWrtCO="0.37,-0.2,0.2" DVLGammaAngleDeg="25" DVLRangeMeters="20" DVLBetaAnglesDeg="45,135,225,315" NetStructureName="Cage"/>
+
+<!-- SIGNAL ROUTING -->
+
+
+<Lib Name="PosDemux" SimObject="Signal/Demux" LibName="FhSimBaseLibrary" PortWidth="6" NumInput="1" OutPortWidth6="1" OutPortWidth5="1" OutPortWidth4="1" OutPortWidth3="1" OutPortWidth2="1" OutPortWidth1="1" NumOutput="6"/>
+
+<Lib Name="VelDemux" SimObject="Signal/Demux" LibName="FhSimBaseLibrary" PortWidth="6" NumInput="1" OutPortWidth6="1" OutPortWidth5="1" OutPortWidth4="1" OutPortWidth3="1" OutPortWidth2="1" OutPortWidth1="1" NumOutput="6"/>
+
+<Lib Name="Pos4DOFMux" SimObject="Signal/Mux" LibName="FhSimBaseLibrary" PortWidth="4" NumInput="4" InPortWidth4="1" InPortWidth3="1" InPortWidth2="1" InPortWidth1="1"/>
+
+<Lib Name="Vel4DOFMux" SimObject="Signal/Mux" LibName="FhSimBaseLibrary" PortWidth="4" NumInput="4" InPortWidth4="1" InPortWidth3="1" InPortWidth2="1" InPortWidth1="1"/>
+
+<Lib Name="Pos3DOFMux" SimObject="Signal/Mux" LibName="FhSimBaseLibrary" PortWidth="3" NumInput="3" InPortWidth3="1" InPortWidth2="1" InPortWidth1="1"/>
+
+<Lib Name="Vel3DOFMux" SimObject="Signal/Mux" LibName="FhSimBaseLibrary" PortWidth="3" NumInput="3" InPortWidth3="1" InPortWidth2="1" InPortWidth1="1"/>
+
+<Lib Name="PsiDSwitch" SimObject="Signal/Switch" LibName="FhSimBaseLibrary" PortWidth="1" SwitchType="eq"/>
+
+<Lib Name="DVLAndNetFollowing" SimObject="Math/Logic" LibName="FhSimBaseLibrary" PortWidth="1" NumInput="2" Type="and"/>
+
+</OBJECTS>
+
+
+-<INTERCONNECTIONS>
+
+<Connection DVLAndNetFollowing.In2="ROVMaster.NetFollowingActive" DVLAndNetFollowing.In1="DVL.UpdateAvailable" PsiDSwitch.In3="NetFollowing.NetHeading" PsiDSwitch.In2="ROVMaster.NetFollowingActive" PsiDSwitch.In1="ROVMaster.DesiredHeading" Vel3DOFMux.In3="VelDemux.Out3" Vel3DOFMux.In2="VelDemux.Out2" Vel3DOFMux.In1="VelDemux.Out1" Pos3DOFMux.In3="PosDemux.Out3" Pos3DOFMux.In2="PosDemux.Out2" Pos3DOFMux.In1="PosDemux.Out1" Vel4DOFMux.In4="VelDemux.Out6" Vel4DOFMux.In3="VelDemux.Out3" Vel4DOFMux.In2="VelDemux.Out2" Vel4DOFMux.In1="VelDemux.Out1" Pos4DOFMux.In4="PosDemux.Out6" Pos4DOFMux.In3="PosDemux.Out3" Pos4DOFMux.In2="PosDemux.Out2" Pos4DOFMux.In1="PosDemux.Out1" VelDemux.In="ROV6DOF.VelocityBODY" PosDemux.In="ROV6DOF.PositionNED" DVL.DVLTiltDeg="0" DVL.ROVPos="ROV6DOF.PositionNED" MovingBody.Position="ROV6DOF.PositionNED" ROVMaster.USBLPositionNED="Pos3DOFMux.Out" ROVMaster.DVLVelocityBODY="Vel3DOFMux.Out" ROVMaster.USBLAvailable="1.0" ROVMaster.NetHeading="NetFollowing.NetHeading" ROVMaster.CrosstrackError="NetFollowing.CrosstrackError" ROVMaster.DVLAvailable="DVL.UpdateAvailable" ROVMaster.VelocityBODY="ROV6DOF.VelocityBODY" ROVMaster.PositionNED="ROV6DOF.PositionNED" ModeSwitcher.AutoDepthActive="ROVMaster.AutoDepthActive" ModeSwitcher.AutoHeadingActive="ROVMaster.AutoHeadingActive" ModeSwitcher.NetFollowingActive="ROVMaster.NetFollowingActive" ModeSwitcher.DPActive="ROVMaster.DPActive" ModeSwitcher.HeadingDesiredTauR="AutoHeading.DesiredTau" ModeSwitcher.DepthDesiredTauW="AutoDepth.DesiredTau" ModeSwitcher.SwayDesiredTauV="AutoSway.DesiredTau" ModeSwitcher.SurgeDesiredTauU="AutoSurge.DesiredTau" ModeSwitcher.ManualDesiredTau="ROVMaster.DesiredTau" ModeSwitcher.DPDesiredTau="DP.DesiredTau" AutoSway.AutoSpeed="DVLAndNetFollowing.Out" AutoSway.DesiredSpeed="NetFollowing.DesiredSpeedSway" AutoSway.MeasuredSpeed="VelDemux.Out2" AutoSurge.AutoSpeed="DVLAndNetFollowing.Out" AutoSurge.DesiredSpeed="NetFollowing.DesiredSpeedSurge" AutoSurge.MeasuredSpeed="VelDemux.Out1" AutoHeading.DotDotFeedForward="0.0" AutoHeading.DotFeedForward="0.0" AutoHeading.AutoHeading="ROVMaster.AutoHeadingActive" AutoHeading.PsiD="PsiDSwitch.Out" AutoHeading.EtaDot="VelDemux.Out6" AutoHeading.Eta="PosDemux.Out6" AutoDepth.AutoDepth="ROVMaster.AutoDepthActive" AutoDepth.ZD="ROVMaster.DesiredDepth" AutoDepth.Eta="PosDemux.Out3" DP.EtaReference="ROVMaster.EtaReference4DOF" DP.BiasEstimate="0,0,0,0" DP.NuEstimate="Vel4DOFMux.Out" DP.EtaEstimate="Pos4DOFMux.Out" NetFollowing.Direction="ROVMaster.NetFollowingDirection" NetFollowing.DesDistanceNetMeters="ROVMaster.NetFollowingDesiredDistance" NetFollowing.DesiredSpeed="ROVMaster.NetFollowingDesiredSpeed" NetFollowing.RotDVLToBODYdeg="0,0,0" NetFollowing.ROVPos="ROV6DOF.PositionNED" NetFollowing.DVLBeams="DVL.DVLBeams" NetFollowing.DVLUpdateValid="DVLAndNetFollowing.Out" ThrusterForcesSum.In6="ThrusterVerticalStarboard.ForcesBODY" ThrusterForcesSum.In5="ThrusterVerticalPort.ForcesBODY" ThrusterForcesSum.In4="ThrusterRearStarboard.ForcesBODY" ThrusterForcesSum.In3="ThrusterFrontStarboard.ForcesBODY" ThrusterForcesSum.In2="ThrusterRearPort.ForcesBODY" ThrusterForcesSum.In1="ThrusterFrontPort.ForcesBODY" ThrusterVerticalStarboard.Cmd="ThrusterDemux.Out6" ThrusterVerticalPort.Cmd="ThrusterDemux.Out5" ThrusterRearStarboard.Cmd="ThrusterDemux.Out4" ThrusterRearPort.Cmd="ThrusterDemux.Out3" ThrusterFrontStarboard.Cmd="ThrusterDemux.Out2" ThrusterFrontPort.Cmd="ThrusterDemux.Out1" ThrusterDemux.In="ThrusterAlloc.Cmd" ThrusterAlloc.ExtCmd="0,0,0,0,0,0" ThrusterAlloc.DPEnabled="1" ThrusterAlloc.Tau_desired="ModeSwitcher.DesiredTau" ROV6DOF.ThrusterForcesAndMoments="ThrusterForcesSum.Out"/>
+
+</INTERCONNECTIONS>
+
+
+-<INITIALIZATION>
+
+<InitialCondition ROV6DOF.Nu="0,0,0,0,0,0" ROV6DOF.Eta="0,0,0,0,0,0" ROV6DOF.BiasVel="0,0,0,0,0,0" ROV6DOF.BiasPos="0,0,0,0,0,0"/>
+
+</INITIALIZATION>
+
+
+-<INTEGRATION>
+
+<Engine NumCores="perCpuCore" UseRSSNormInsteadOfInfNorm="0" RelTol="0.01" AbsTol="0.01" HMin="1E-15" HMax="0.1" Stepsize="0.01" FileOutput="objects:ports" LogStates="1" TOutput="0,0:0.1:50000,50000" IntegratorMethod="0"/>
+
+</INTEGRATION>
+
+</Contents>
