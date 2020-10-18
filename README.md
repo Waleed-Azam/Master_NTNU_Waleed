@@ -12,5 +12,7 @@ The file SimObjectNetfollowingXml will give the information of the varaibles and
 
 The Simulated data using the FhSim which has been used for the data generation: https://github.com/Waleed-Azam/Master_NTNU_Waleed/blob/master/Master_SyntheticData_FhSim
 
+The fishmodel simulated for many seconds, here only presented the movement of the fishes for 2 seconds, under files name FishBehaviour@1Second and FishBehaviour@2Second respectively, for more: https://github.com/Waleed-Azam/Master_NTNU_Waleed/blob/master/FishBehaviour%401Second
+
 
 If you have any questions about my code please ask waleed.ntnu@gmail.com
