@@ -15,4 +15,6 @@ The Simulated data using the FhSim which has been used for the data generation: 
 The fishmodel simulated for many seconds, here only presented the movement of the fishes for 2 seconds, under files name FishBehaviour@1Second and FishBehaviour@2Second respectively, for more: https://github.com/Waleed-Azam/Master_NTNU_Waleed/blob/master/FishBehaviour%401Second
 
 
+Syhtetic and STB data set, TRAINED model and the Predcitions under file Synthetic data and STB data_Predicitons https://github.com/Waleed-Azam/Master_NTNU_Waleed/blob/master/Synthetic_data_and_STB_data_Predicitons.ipynb
+
 If you have any questions about my code please ask waleed.ntnu@gmail.com
